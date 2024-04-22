@@ -72,3 +72,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ### Note
 
 - `npm install sass-loader sass webpack`
+- `npm install --save bootstrap-4-react`

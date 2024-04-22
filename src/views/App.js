@@ -1,6 +1,12 @@
 import logo from './logo.svg';
 import './App.scss';
-function App() {
+import MyComponent from './Example/MyComponent';
+
+// import React, { Component } from 'react';
+// import { Alert } from 'bootstrap-4-react';
+
+
+const App = () => {
   return (
     <div className="App">
       <header className="App-header">
@@ -16,6 +22,7 @@ function App() {
         >
           Learn React
         </a>
+        <MyComponent />
       </header>
     </div>
   );
