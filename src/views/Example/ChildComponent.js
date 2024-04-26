@@ -2,31 +2,70 @@ import React from 'react';
 
 class ChildComponent extends React.Component {
     state = {
-      // name: "Mặc cái quần",
-      // channel: "Hoi Dan IT"
-      firstName: "",
-      lastName: ""
+      showJobs: false
+    }
+
+    handleShowHide() {
+      this.setState({
+        showJobs: !this.state.showJobs
+      })
     }
 
     render() {
-      // let name = this.props.name || "no name";
-      // let age = this.props.age || "no age";
-      let {name, age, address, arrJobs } = this.props;
-      console.log(">>>>> this.props = ", this.props, name, age, arrJobs);
+      let { arrJobs } = this.props;
+      let { showJobs } = this.state;
+      let check = showJobs === true ? 'showJobs = true' : 'showJobs = false';
+      console.log('>>> check showJobs = ', check);
       let a = '';
       return (
         <>
-          <div className="job-lists">
-            {
-              a = arrJobs.map((item, index) => {
-                return (<div key={item.id}>{item.title} - {item.salary}</div>);
-              })
-            }
-            {console.log(">>> check map = ", a)}
-          </div>
+          {
+            !showJobs ?
+              <div>
+                <button onClick={() => this.handleShowHide()} >Show</button>
+              </div>
+            :
+              <>
+                <div className="job-lists">
+                  {
+                    a = arrJobs.map((item, index) => {
+                      if (item.salary >=500){
+                        return (
+                          <>
+                            <div key={item.id}>{item.title} - {item.salary} $</div>
+                          </>
+                        );
+                      }
+                    })
+                  }
+                  {console.log(">>> check map = ", a)}
+                </div>
+                <div><button onClick={() => this.handleShowHide()} >Hide</button></div>
+              </>
+          }
+          
+
         </>
       );
     }
   }
+
+// const ChildComponent = (props) => {
+//   console.log(">>> check props = ", props);
+//   let {arrJobs} = props;
+//   return (
+//     <>
+//       <div className="job-lists">
+//         {
+//           arrJobs.map((item, index) => {
+//             if (item.salary >= 500) {
+//               return (<div key={item.id}>{item.title} - {item.salary} $</div>);
+//             }
+//           })
+//         }
+//       </div>
+//     </>
+//   );
+// } 
 
 export default ChildComponent;
