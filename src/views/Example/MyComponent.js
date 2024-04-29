@@ -63,6 +63,15 @@ class MyComponent extends React.Component {
         </>
       );
     }
+
+    componentDidMount() {
+      console.log("My component run componentDidMount");
+    }
+
+    componentDidUpdate(prevProps, prevStates) {
+      console.log("Mặc cái quần = ", prevStates, this.state);
+    }
+    
   }
 
 export default MyComponent;

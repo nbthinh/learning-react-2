@@ -18,8 +18,8 @@ class ChildComponent extends React.Component {
     render() {
       let { arrJobs } = this.props;
       let { showJobs } = this.state;
-      let check = showJobs === true ? 'showJobs = true' : 'showJobs = false';
-      console.log('>>> check showJobs = ', check);
+      // let check = showJobs === true ? 'showJobs = true' : 'showJobs = false';
+      // console.log('>>> check showJobs = ', check);
       let a = '';
       return (
         <>
@@ -36,7 +36,8 @@ class ChildComponent extends React.Component {
                 <div className="job-lists">
                   {
                     a = arrJobs.map((item, index) => {
-                      if (item.salary >=500){
+                      // if (item.salary >=500){
+                      if (true){
                         return (
                           <>
                             <div key={item.id}>{item.title} - {item.salary} <></> <span style={{cursor: "pointer"}} onClick={() => this.handleOnclickDelete(item)}>x</span></div>

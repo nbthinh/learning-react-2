@@ -58,6 +58,10 @@ class AddComponent extends React.Component {
             </form> 
         );
     }
+
+    // componentDidUpdate(prevProps, prevStates) {
+    //   console.log("Mặc cái quần = ", prevProps, prevStates);
+    // }
 }
 
 export default AddComponent;
