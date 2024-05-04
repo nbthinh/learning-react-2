@@ -9,15 +9,16 @@ import 'react-toastify/dist/ReactToastify.css';
 import Nav from './Nav/Nav';
 import Home from './Example/Home';
 import {
-  BrowserRouter as Router,
-  Switch,
+  BrowserRouter,
+  // Switch,
+  Routes,
   Route,
   Link
 } from "react-router-dom";
 
 const App = () => {
   return (
-    <Router>
+    <BrowserRouter>
 
       <div className="App">
         <header className="App-header">
@@ -28,18 +29,18 @@ const App = () => {
             {/* <Home /> */}
             {/* <ListToDo /> */}
 
-            <Switch>
-              <Route path="/" exact>
-                <Home />
+            <Routes>
+              <Route path="/" element={<Home />} exact>
+                {/* <Home /> */}
               </Route>
-              <Route path="/todos">
-                <ListToDo />
+              <Route path="/todos" element={<ListToDo />}>
+                {/* <ListToDo /> */}
               </Route>
-              <Route path="/about">
-                <MyComponent />
+              <Route path="/about" element={<MyComponent />}>
+                {/* <MyComponent /> */}
               </Route>
               
-            </Switch>
+            </Routes>
 
 
         </header>
@@ -57,7 +58,7 @@ const App = () => {
           {/* Same as */}
           <ToastContainer />
       </div>
-    </Router>
+    </BrowserRouter>
 
   );
 }
