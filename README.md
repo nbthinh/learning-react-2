@@ -73,3 +73,51 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 - `npm install sass-loader sass webpack`
 - `npm install --save bootstrap-4-react`
+
+### Note
+
+- Do có một số trục trặc về việc không tương thích phiên bản, nên có một số thay đổi để có thể gọi các action bên redux, một số thay đổi:
+
+```
+import ReactDOM from 'react-dom';
+...
+ReactDOM.render(
+  <React.StrictMode>
+    <Provider store={reduxStore}>
+      <App />
+    </Provider>
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+```
+
+- Các thay đổi bao gồm:
+
+  - Thay đổi: `import ReactDOM from 'react-dom/client';` thành `import ReactDOM from 'react-dom';`
+  - Thay đổi đoạn code sau đây:
+
+    ```
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(
+        <React.StrictMode>
+            <Provider store={reduxStore}>
+            <App />
+            </Provider>
+        </React.StrictMode>
+        );
+    ```
+
+    thành:
+
+    ```
+      ReactDOM.render(
+        <React.StrictMode>
+            <Provider store={reduxStore}>
+            <App />
+            </Provider>
+        </React.StrictMode>,
+        document.getElementById('root')
+        );
+    ```
+
+- Một khi thay đổi là có thể dùng được redux.
